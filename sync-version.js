@@ -1,6 +1,8 @@
 import fs from 'fs';
 import { execSync } from 'child_process';
 
+execSync('git fetch --tags');
+
 let latestTag = execSync('git tag --sort=-v:refname')
   .toString()
   .split('\n')
