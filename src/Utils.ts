@@ -1,18 +1,17 @@
 import { Context, PublicAPI } from "@wox-launcher/wox-plugin"
 import { exec } from "child_process"
 import path from "path"
-import fs from "fs"
 
-export function loadShortcuts(): Shortcut[] {
-  const configPath = path.join(__dirname, "shortcuts.json")
-  let shortcuts: Shortcut[] = []
+const defaultValue: Shortcut[] = []
+
+export async function loadShortcuts(ctx: Context, api: PublicAPI): Promise<Shortcut[]> {
   try {
-    const data = fs.readFileSync(configPath, "utf-8")
-    shortcuts = JSON.parse(data) as Shortcut[]
+    const raw = await api.GetSetting(ctx, "shortcuts")
+    return JSON.parse(raw) as Shortcut[]
   } catch (error) {
-    console.error("Failed to load shortcuts:", error)
+    console.error("Failed to parse shortcuts setting:", error)
+    return defaultValue as Shortcut[]
   }
-  return shortcuts
 }
 
 export function substitutePlaceholders(script: string, args: string[]): string {

@@ -34,6 +34,7 @@ jobs:
           mkdir CustomCommands
           cp -r dist/* CustomCommands/
           zip -r CustomCommands.zip CustomCommands
+          mv CustomCommands.zip CustomCommands.wox
 
       - name: Extract version from package.json
         id: get_version
@@ -54,6 +55,6 @@ jobs:
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
           name: Release v${{ steps.get_version.outputs.version }}
-          files: CustomCommands.zip
+          files: CustomCommands.wox
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}

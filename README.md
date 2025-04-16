@@ -13,7 +13,7 @@ A simple and flexible Wox 2 plugin that allows you to define custom shell comman
 
 1. Go to the Wox plugin directory:
     - macOS: `~/.wox/wox-user/plugins/`
-    - Windows/Linux: 'no idea'
+    - Windows/Linux: 'Your Wox installation directory/plugins/'
 
 2. Go to release page and download the latest version of the plugin
 
@@ -22,10 +22,13 @@ A simple and flexible Wox 2 plugin that allows you to define custom shell comman
 4. Restart Wox.
 
 ## 🔧 Configuration
-1. Open the `CustomCommand` folder in the Wox plugin directory.
-2. Edit the `shortcuts.json` file to define your custom commands. (You can use @ shortcut in Wox to open the file directly)
+1. Open the `Custom Command Settings` in Wox
+   (Plugins/Installed Plugins/Custom Command/Settings)
+2. Edit the field (it's a JSON text field) 
+3. Press Enter to save the changes (no need to restart Wox)
+4. You'll see if it works directly in Wox, just type the shortcut name and if it appears, it works!
 
-### Ex:
+### Example Configuration
 ```json
 [
   {
@@ -42,5 +45,3 @@ A simple and flexible Wox 2 plugin that allows you to define custom shell comman
 ```
 
 You can use `$@` to pass all arguments and `$1`, `$2`, etc. to pass specific arguments. The script can be a shell command, PowerShell command, or a path to an executable.
-
-You will need to restart Wox after making changes to the `shortcuts.json` file for them to take effect.

@@ -1,5 +1,13 @@
-import { Context, Plugin, PluginInitParams, PublicAPI, Query, Result, WoxImage } from "@wox-launcher/wox-plugin"
-import { executeScript, loadShortcuts, openShortcutsConfig, substitutePlaceholders } from "./Utils"
+import {
+  Context,
+  Plugin,
+  PluginInitParams,
+  PublicAPI,
+  Query,
+  Result,
+  WoxImage
+} from "@wox-launcher/wox-plugin"
+import { executeScript, loadShortcuts, substitutePlaceholders } from "./Utils"
 
 let api: PublicAPI
 let shortcuts: Shortcut[] = []
@@ -20,29 +28,20 @@ const buildResult = (title: string, subtitle: string, action: () => Promise<void
 export const plugin: Plugin = {
   init: async (ctx: Context, initParams: PluginInitParams) => {
     api = initParams.API
-    shortcuts = loadShortcuts()
+
+    shortcuts = await loadShortcuts(ctx, api);
+
     await api.Log(ctx, "Info", `Plugin initialized with ${shortcuts.length} shortcuts loaded.`)
+
+    await api.OnSettingChanged(ctx, async (setting) => {
+      if (setting === "shortcuts") {
+        shortcuts = await loadShortcuts(ctx, api)
+      }
+    })
   },
 
   query: async (ctx: Context, query: Query): Promise<Result[]> => {
     const search = query.Search?.trim() || ""
-
-    // TODO: make this configurable
-    if (search.startsWith("@")) {
-      return [
-        {
-          Title: "Edit Shortcuts Settings",
-          SubTitle: "Modify the shortcuts.json file",
-          Icon: getIcon(),
-          Actions: [
-            {
-              Name: "Edit",
-              Action: async () => openShortcutsConfig(api, ctx)
-            }
-          ]
-        }
-      ]
-    }
 
     if (!search) {
       return shortcuts.map(s => buildResult(s.shortcut, `Executes: ${substitutePlaceholders(s.script, [])}`, async () => executeScript(api, ctx, s)))
