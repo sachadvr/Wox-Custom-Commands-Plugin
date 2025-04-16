@@ -1,7 +1,7 @@
 {
   "name": "wox-custom-commands-plugin",
   "author": "Sacha Duvivier",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "prebuild": "node sync-version.js",
     "build": "pnpm clean && ncc build src/index.ts -o dist && babel dist --out-dir dist && cp -r images dist && cp -r plugin.json dist && cp src/shortcuts.json dist/",

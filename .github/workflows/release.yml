@@ -30,7 +30,7 @@ jobs:
         run: pnpm run build
 
       - name: Zip dist folder
-        run: zip -r dist.zip dist
+        run: zip -r CustomCommands.zip dist
 
       - name: Extract version from package.json
         id: get_version
@@ -51,6 +51,6 @@ jobs:
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
           name: Release v${{ steps.get_version.outputs.version }}
-          files: dist.zip
+          files: CustomCommands.zip
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
