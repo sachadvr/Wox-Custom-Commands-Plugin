@@ -29,8 +29,11 @@ jobs:
       - name: Build project
         run: pnpm run build
 
-      - name: Zip dist folder
-        run: zip -r CustomCommands.zip dist
+      - name: Zip dist folder with custom root folder name
+        run: |
+          mkdir CustomCommands
+          cp -r dist/* CustomCommands/
+          zip -r CustomCommands.zip CustomCommands
 
       - name: Extract version from package.json
         id: get_version

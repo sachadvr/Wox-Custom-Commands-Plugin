@@ -6,7 +6,7 @@
   "Name": "Custom Commands",
   "Description": "Custom Commands Plugin for Wox 2.0",
   "Author": "Sacha Duvivier",
-  "Version": "1.0.1",
+  "Version": "1.0.2",
   "MinWoxVersion": "2.0.0",
   "Runtime": "nodejs",
   "Website": "https://sachadvr.fr",
