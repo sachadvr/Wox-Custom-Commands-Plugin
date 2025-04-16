@@ -1,17 +1,17 @@
 {
-  "Id": "[Id]",
+  "Id": "1",
   "TriggerKeywords": [
-    "[Trigger Keyword]"
+    "*"
   ],
-  "Name": "[Name]",
-  "Description": "[Description]",
-  "Author": "[Author Name]",
-  "Version": "0.0.1",
+  "Name": "Custom Commands",
+  "Description": "Custom Commands Plugin for Wox 2.0",
+  "Author": "Sacha Duvivier",
+  "Version": "1.0.1",
   "MinWoxVersion": "2.0.0",
   "Runtime": "nodejs",
-  "Website": "[Website]",
+  "Website": "https://sachadvr.fr",
   "Entry": "index.js",
-  "Icon": "relative:images/app.png",
+  "Icon": "relative:images/shell.png",
   "SupportedOS": [
     "windows",
     "linux",

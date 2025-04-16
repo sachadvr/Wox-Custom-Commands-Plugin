@@ -1,0 +1,12 @@
+[
+  {
+    "shortcut": "Gitlab",
+    "script": "open 'https://gitlab.com/search?scope=merge_requests&search=$@'",
+    "description": "Search merge requests in Gitlab $@"
+  },
+  {
+    "shortcut": "Random",
+    "script": "say $((RANDOM % $1))",
+    "description": "Generate a random number between 0 and $1"
+  }
+]
