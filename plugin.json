@@ -6,7 +6,7 @@
   "Name": "Custom Commands",
   "Description": "Custom Commands Plugin for Wox 2.0",
   "Author": "Sacha Duvivier",
-  "Version": "1.0.4",
+  "Version": "1.0.6",
   "MinWoxVersion": "2.0.0",
   "Runtime": "nodejs",
   "Website": "https://sachadvr.fr",
@@ -22,13 +22,13 @@
       "Type": "textbox",
       "Value": {
         "Key": "shortcuts",
-        "DefaultValue": "[{\"shortcut\":\"Default MacOS - Custom Command\",\"script\":\"open 'https://www.google.com'\",\"description\":\"This is a custom command that opens a URL in the default web browser on MacOS\"},{\"shortcut\":\"Default Linux - Custom Command\",\"script\":\"xdg-open 'https://www.google.com'\",\"description\":\"This is a custom command that opens a URL in the default web browser on Linux\"},{\"shortcut\":\"Default Windows - Custom Command\",\"script\":\"start 'https://www.google.com'\",\"description\":\"This is a custom command that opens a URL in the default web browser on Windows\"}]",
+        "DefaultValue": "[\n  {\n    \"shortcut\": \"Default MacOS - Custom Command\",\n    \"script\": \"open 'https://www.google.com'\",\n    \"description\": \"This is a custom command that opens a URL in the default web browser on MacOS\"\n  },\n  {\n    \"shortcut\": \"Default Linux - Custom Command\",\n    \"script\": \"xdg-open 'https://www.google.com'\",\n    \"description\": \"This is a custom command that opens a URL in the default web browser on Linux\"\n  },\n  {\n    \"shortcut\": \"Default Windows - Custom Command\",\n    \"script\": \"start 'https://www.google.com'\",\n    \"description\": \"This is a custom command that opens a URL in the default web browser on Windows\"\n  }\n]",
         "Label": "Shortcuts",
+        "MaxLines": 20,
         "Tooltip": "Shortcuts to be used in the plugin",
         "Style": {
           "PaddingRight": 10,
-          "Width": 300,
-          "Height": 200
+          "Width": 500
         }
       }
     }
