@@ -29,12 +29,10 @@ jobs:
       - name: Build project
         run: pnpm run build
 
-      - name: Zip dist folder with custom root folder name
+      - name: Zip dist contents directly
         run: |
-          mkdir CustomCommands
-          cp -r dist/* CustomCommands/
-          zip -r CustomCommands.zip CustomCommands
-          mv CustomCommands.zip CustomCommands.wox
+          cd dist
+          zip -r ../CustomCommands.wox .
 
       - name: Extract version from package.json
         id: get_version
